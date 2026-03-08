@@ -7,6 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server._Nuclear.Chat;
 using Content.Server.Administration;
 using Content.Shared.Administration;
+using Content.Shared.Administration.Managers;
 using Content.Shared._Nuclear.Chat;
 using Robust.Server.Player;
 using Robust.Shared.Console;
@@ -19,6 +20,7 @@ namespace Content.Server._Nuclear.Chat.Commands;
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class NuclearChatMuteCommand : LocalizedCommands
 {
+    [Dependency] private readonly ISharedAdminManager _admin = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
     [Dependency] private readonly IEntitySystemManager _systems = default!;
 
@@ -36,6 +38,12 @@ public sealed class NuclearChatMuteCommand : LocalizedCommands
         if (!TryGetSession(args[0], out var session))
         {
             shell.WriteError(Loc.GetString("nchatmute-error-player-not-found", ("player", args[0])));
+            return;
+        }
+
+        if (_admin.IsAdmin(session))
+        {
+            shell.WriteError(Loc.GetString("nchatmute-error-target-admin", ("player", session.Name)));
             return;
         }
 
@@ -71,8 +79,8 @@ public sealed class NuclearChatMuteCommand : LocalizedCommands
         if (args.Length == 2)
         {
             return CompletionResult.FromHintOptions(
-                new[] { "looc", "ooc", "dead", "all" },
-                "<looc|ooc|dead|all>");
+                new[] { "say", "whisper", "me", "looc", "ooc", "dead", "all" },
+                "<say|whisper|me|looc|ooc|dead|all>");
         }
 
         if (args.Length == 3)
@@ -101,6 +109,16 @@ public sealed class NuclearChatMuteCommand : LocalizedCommands
     {
         switch (value.ToLowerInvariant())
         {
+            case "say":
+                flags = NuclearChatMuteFlags.Say;
+                return true;
+            case "whisper":
+                flags = NuclearChatMuteFlags.Whisper;
+                return true;
+            case "me":
+            case "emote":
+                flags = NuclearChatMuteFlags.Emote;
+                return true;
             case "looc":
                 flags = NuclearChatMuteFlags.Looc;
                 return true;
@@ -153,6 +171,15 @@ public sealed class NuclearChatMuteCommand : LocalizedCommands
         if (flags == NuclearChatMuteFlags.Dead)
             return "dead";
 
+        if (flags == NuclearChatMuteFlags.Say)
+            return "say";
+
+        if (flags == NuclearChatMuteFlags.Whisper)
+            return "whisper";
+
+        if (flags == NuclearChatMuteFlags.Emote)
+            return "me";
+
         return flags.ToString();
     }
 }
@@ -183,6 +210,9 @@ public sealed class NuclearChatMuteStatusCommand : LocalizedCommands
         var flags = _systems.GetEntitySystem<NuclearChatMuteSystem>().GetFlags(session.UserId);
         shell.WriteLine(Loc.GetString("nchatmute-status",
             ("player", session.Name),
+            ("say", FlagToText(flags, NuclearChatMuteFlags.Say)),
+            ("whisper", FlagToText(flags, NuclearChatMuteFlags.Whisper)),
+            ("emote", FlagToText(flags, NuclearChatMuteFlags.Emote)),
             ("looc", FlagToText(flags, NuclearChatMuteFlags.Looc)),
             ("ooc", FlagToText(flags, NuclearChatMuteFlags.Ooc)),
             ("dead", FlagToText(flags, NuclearChatMuteFlags.Dead))));

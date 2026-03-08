@@ -80,6 +80,15 @@ public sealed class NuclearChatMuteSystem : EntitySystem
         if ((channel & ChatChannel.Dead) != 0)
             return NuclearChatMuteFlags.Dead;
 
+        if ((channel & ChatChannel.Local) != 0)
+            return NuclearChatMuteFlags.Say;
+
+        if ((channel & ChatChannel.Whisper) != 0)
+            return NuclearChatMuteFlags.Whisper;
+
+        if ((channel & ChatChannel.Emotes) != 0)
+            return NuclearChatMuteFlags.Emote;
+
         return NuclearChatMuteFlags.None;
     }
 
@@ -93,6 +102,15 @@ public sealed class NuclearChatMuteSystem : EntitySystem
 
         if ((channel & ChatChannel.Dead) != 0)
             return Loc.GetString("nchatmute-channel-dead");
+
+        if ((channel & ChatChannel.Local) != 0)
+            return Loc.GetString("nchatmute-channel-say");
+
+        if ((channel & ChatChannel.Whisper) != 0)
+            return Loc.GetString("nchatmute-channel-whisper");
+
+        if ((channel & ChatChannel.Emotes) != 0)
+            return Loc.GetString("nchatmute-channel-emote");
 
         return channel.ToString();
     }
