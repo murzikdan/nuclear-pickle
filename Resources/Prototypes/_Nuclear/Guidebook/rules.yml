@@ -1,0 +1,205 @@
+- type: guideEntry
+  id: NuclearWastelandRuleset
+  name: "Правила Ядерного Рассола"
+  priority: 60
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Ruleset.xml"
+  children:
+  - NWSection1
+  - NWSection2
+  - NWSection3
+  - NWSection4
+  - NWSection5
+  - NWSection6
+
+- type: guideEntry
+  id: NWSection1
+  name: "Раздел 1. Основные правила игры"
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Section1.xml"
+  children:
+  - NWRule11
+  - NWRule12
+  - NWRule13
+  - NWRule14
+
+- type: guideEntry
+  id: NWRule11
+  name: "1.1. Гриф (целенаправленная порча игры)"
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule1.1.xml"
+
+- type: guideEntry
+  id: NWRule12
+  name: "1.2. Нечестная игра (читерство и эксплойты)"
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule1.2.xml"
+
+- type: guideEntry
+  id: NWRule13
+  name: "1.3. Мультиаккаунт"
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule1.3.xml"
+
+- type: guideEntry
+  id: NWRule14
+  name: "1.4. Использование иностранных языков"
+  priority: 4
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule1.4.xml"
+
+- type: guideEntry
+  id: NWSection2
+  name: "Раздел 2. Взаимодействие с игроками и сообществом"
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Section2.xml"
+  children:
+  - NWRule21
+  - NWRule22
+
+- type: guideEntry
+  id: NWRule21
+  name: "2.1. Убийство и насилие"
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule2.1.xml"
+
+- type: guideEntry
+  id: NWRule22
+  name: "2.2. Поддержание уважительной обстановки"
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule2.2.xml"
+
+- type: guideEntry
+  id: NWSection3
+  name: "Раздел 3. Ролевая игра и внутриигровая информация"
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Section3.xml"
+  children:
+  - NWRule31
+  - NWRule32
+  - NWRule33
+  - NWRule34
+  - NWRule35
+
+- type: guideEntry
+  id: NWRule31
+  name: "3.1. Нарушение игровой атмосферы"
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule3.1.xml"
+
+- type: guideEntry
+  id: NWRule32
+  name: "3.2. Метагейминг"
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule3.2.xml"
+
+- type: guideEntry
+  id: NWRule33
+  name: "3.3. ERP"
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule3.3.xml"
+
+- type: guideEntry
+  id: NWRule34
+  name: "3.4. LOOC"
+  priority: 4
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule3.4.xml"
+
+- type: guideEntry
+  id: NWRule35
+  name: "3.5. IC в OOC"
+  priority: 5
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule3.5.xml"
+
+- type: guideEntry
+  id: NWSection4
+  name: "Раздел 4. Антагонисты"
+  priority: 4
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Section4.xml"
+  children:
+  - NWRule41
+  - NWRule42
+  - NWRule43
+
+- type: guideEntry
+  id: NWRule41
+  name: "4.1. Ответственная игра за антагониста"
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule4.1.xml"
+
+- type: guideEntry
+  id: NWRule42
+  name: "4.2. Самоантагонизм"
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule4.2.xml"
+
+- type: guideEntry
+  id: NWRule43
+  name: "4.3. Чрезмерная сила антагониста"
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule4.3.xml"
+
+- type: guideEntry
+  id: NWSection5
+  name: "Раздел 5. Командование и служба безопасности"
+  priority: 5
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Section5.xml"
+  children:
+  - NWRule51
+  - NWRule52
+
+- type: guideEntry
+  id: NWRule51
+  name: "5.1. Подавайте пример"
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule5.1.xml"
+
+- type: guideEntry
+  id: NWRule52
+  name: "5.2. Иерархия (Слушайтесь главу)"
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule5.2.xml"
+
+- type: guideEntry
+  id: NWSection6
+  name: "Раздел 6. Окончание раунда"
+  priority: 6
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Section6.xml"
+  children:
+  - NWRule61
+  - NWRule62
+
+- type: guideEntry
+  id: NWRule61
+  name: "6.1. Пост-раунд"
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule6.1.xml"
+
+- type: guideEntry
+  id: NWRule62
+  name: "6.2. Затягивание раунда"
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule6.2.xml"
