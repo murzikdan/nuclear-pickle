@@ -47,7 +47,7 @@
 
 - type: guideEntry
   id: NWRule14
-  name: "1.4. Использование иностранных языков"
+  name: "1.4. Безграмотность и чистота речи"
   priority: 4
   ruleEntry: true
   text: "/ServerInfo/_Nuclear/Guidebook/ServerRules/Rule1.4.xml"
