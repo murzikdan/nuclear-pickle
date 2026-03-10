@@ -21,7 +21,8 @@
 - type: species
   id: Felinid
   name: species-name-felinid
-  roundStart: false # Goobstation change
+  roundStart: true # Nuclear change
+  sponsorOnly: true # Nuclear-Sponsors
   prototype: MobFelinid
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits

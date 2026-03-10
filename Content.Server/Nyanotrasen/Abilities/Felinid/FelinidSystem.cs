@@ -20,12 +20,10 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Medical;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Shared.Body.Components;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Content.Shared.Charges.Systems;
 
@@ -36,9 +34,7 @@ public sealed partial class FelinidSystem : EntitySystem
 
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly HungerSystem _hungerSystem = default!;
-    [Dependency] private readonly VomitSystem _vomitSystem = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -184,19 +180,11 @@ public sealed partial class FelinidSystem : EntitySystem
     {
         if (HasComp<FelinidComponent>(args.Target) || !HasComp<StatusEffectsComponent>(args.Target))
             return;
-        if (_robustRandom.Prob(0.2f))
-            _vomitSystem.Vomit(args.Target);
     }
 
     private void OnHairballPickupAttempt(EntityUid uid, HairballComponent component, GettingPickedUpAttemptEvent args)
     {
         if (HasComp<FelinidComponent>(args.User) || !HasComp<StatusEffectsComponent>(args.User))
             return;
-
-        if (_robustRandom.Prob(0.2f))
-        {
-            _vomitSystem.Vomit(args.User);
-            args.Cancel();
-        }
     }
 }
