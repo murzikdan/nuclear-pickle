@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: gameMap
   id: Aspid
   mapName: 'NCS Aspid'
@@ -30,6 +34,7 @@
             Librarian: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
             ServiceWorker: [ 1, 1 ]
+            RadioHost: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]
