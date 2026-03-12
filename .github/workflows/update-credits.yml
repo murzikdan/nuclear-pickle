@@ -24,6 +24,14 @@ jobs:
     if: github.repository == 'Goob-Station/Goob-Station'
 
     steps:
+      - id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
       - uses: actions/checkout@v4.2.2
         with:
           ref: master
@@ -31,7 +39,7 @@ jobs:
       - name: Get this week's Contributors
         shell: pwsh
         env:
-          GITHUB_TOKEN: ${{secrets.BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: Tools/dump_github_contributors.ps1 > Resources/Credits/GitHub.txt
 
       # TODO

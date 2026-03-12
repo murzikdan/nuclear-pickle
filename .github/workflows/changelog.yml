@@ -11,7 +11,6 @@ on:
     types: [closed]
 
 env:
-  GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
   CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
   PR_NUMBER: ${{ github.event.number }}
 
@@ -22,10 +21,18 @@ jobs:
     permissions:
       contents: write
     steps:
+      - id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
       - name: Checkout Master
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.BOT_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           ref: "${{ vars.CHANGELOG_BRANCH }}"
 
       - name: Setup Git
@@ -47,6 +54,8 @@ jobs:
         continue-on-error: true
 
       - name: Generate Changelog
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           cd "Tools/changelog"
           node changelog.js
