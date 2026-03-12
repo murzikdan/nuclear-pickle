@@ -19,6 +19,14 @@ jobs:
       SYNC_BRANCH: 'automated-upstream-branch'
 
     steps:
+      - id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
@@ -31,7 +39,7 @@ jobs:
 
       - name: Sync Branch and Create PR
         env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           git remote add upstream "$REMOTE_URL"
 
