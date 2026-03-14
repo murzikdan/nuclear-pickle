@@ -4,7 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-
+// Fully deleted by CorvaxGoob
+/*
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
 using Robust.Client.Audio;
@@ -186,4 +187,4 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
         }
     }
 }
-
+*/

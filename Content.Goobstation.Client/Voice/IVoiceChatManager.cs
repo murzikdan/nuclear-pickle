@@ -4,12 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*namespace Content.Goobstation.Client.Voice;
 
-namespace Content.Goobstation.Client.Voice;
-
- <summary>
+/// <summary>
 /// Interface for the voice chat manager.
- </summary>
+/// </summary>
 public interface IVoiceChatManager
 {
     /// <summary>
@@ -39,4 +39,4 @@ public interface IVoiceChatManager
 
     void Shutdown();
 }
-
+*/

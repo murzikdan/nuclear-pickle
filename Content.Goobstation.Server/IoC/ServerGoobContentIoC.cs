@@ -7,6 +7,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using Content.Goobstation.Common.JoinQueue;
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Goobstation.Server.JoinQueue;
@@ -33,4 +35,4 @@ internal static class ServerGoobContentIoC
         instance.Register<ICommonCurrencyManager, ServerCurrencyManager>();
     }
 }
-
+*/

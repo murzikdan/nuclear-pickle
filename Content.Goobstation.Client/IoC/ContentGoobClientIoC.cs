@@ -4,10 +4,11 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-
+//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-
+// Fully deleted by CorvaxGoob
+/*
 using Content.Goobstation.Client.JoinQueue;
 using Content.Goobstation.Client.MisandryBox;
 using Content.Goobstation.Client.Polls;
@@ -24,7 +25,7 @@ internal static class ContentGoobClientIoC
 {
     internal static void Register()
     {
-        var collection = IoCManager.Instance!;
+        //var collection = IoCManager.Instance!;
 
         collection.Register<RedialManager>();
         collection.Register<PollManager>();
@@ -34,4 +35,4 @@ internal static class ContentGoobClientIoC
         collection.Register<ICommonCurrencyManager, ClientCurrencyManager>();
     }
 }
-
+*/
